@@ -1,99 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>My Website</title>
-
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inkwell - Sing in</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
+<body data-theme="dark">
+  <div class="brand-panel">
+    <div class="brand-mark">Ink<span>well</span></div>
+    <div class="brand-copy">
+      <h1>Write the thing<br>only you can write.</h1>
+      <p>A quiet place to draft, revise and publish — without the noise of a feed telling you what's next.</p>
+    </div>
+    <div class="brand-quote">"The scariest moment is always just before you start."</div>
+  </div>
 
-<body>
-    <header>
-        <nav class="navbar">
-            <h1 class="logo">MyWebsite</h1>
-
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#contract">Contract</a></li>
-            </ul>
-
-            <button id="menu-btn">☰</button>
-
-        </nav>
-    </header>
-
-    <main>
-        <section id="home" class="hero">
-            <div class="hero-content">
-                <h2>Welcome to my Website</h2>
-                <p>
-                    This is a standard webpage made using
-                    HTML,CSS and JavaScript.
-                </p>
-                <button id="learn-btn">Learn More</button>
+  <div class="form-panel">
+    <button class="theme-toggle" id="themeToggle" title="Toggle theme">🌙</button>
+    <div class="card-warp">
+      <div class="card-inner" id="cardInner">
+        <!--LOG IN-->
+        <div class="face front" id="loginFace">
+          <h2 class="title">Welcome Back</h2>
+          <p class="subtitle">New here? <button type="button" id="toSignup">Create an account</button></p>
+           <form id="loginForm" novalidate>
+            <div class="field">
+              <label for="loginEmail">Email</label>
+              <input type="email" id="loginEmail" placeholder="you@example.com" autocomplete="email">
+              <div class="field-error" id="loginEmailErr"></div>
             </div>
-        </section>
-
-        <section id="about" class="section">
-            <h2>About Me</h2>
-            <p>
-                Hello ! I am learning web devlopment.
-                I am practicing HTML,CSS and JavaScript
-                by building websites form scratch.
-            </p>
-        </section>
-
-        <section id="services" class="section">
-            <h2>My Services</h2>
-            <div class="cards">
-                <div class="card">
-                    <h3>HTML</h3>
-                    <p>
-                        Building the structure of webpages.
-                    </p>
-                </div>
-
-                <div class="card">
-                    <h3>CSS</h3>
-                    <p>
-                        Designing and styling webpages.
-                    </p>
-                </div>
-
-                <div class="card">
-                    <h3>JavaScript</h3>
-                    <p>
-                        Adding interaction and functionality.
-                    </p>
-                </div>
+            <div class="field">
+              <label for="loginPassword">Password</label>
+              <input type="password" id="loginPassword" placeholder="••••••••" autocomplete="current-password">
+              <button type="button" class="toggle-eye" data-target="loginPassword">Show</button>
+              <div class="field-error" id="loginPasswordErr"></div>
             </div>
-        </section>
-
-        <section id="contract" class="section">
-            <h2>Contract Me</h2>
-            <form id="contract-form">
-                <input type="text" id="name" placeholder="Your Name" required>
-                <input type="email" id="email" placeholder="Your Email" required>
-                <textarea id="message" placeholder="Your Message" rows="5" required>
-
-                </textarea>
-                <button type="submit">Send Message</button>
-            </form>
-        </section>
-
-    </main>
-
-    <footer>
-        <p>
-            &copy; 2026 MyWebsize. All rights reserved.
-        </p>
-    </footer>
-
-    <script src="script.js"></script>
-    
+            <div class="row-between">
+              <label class="remember"><input type="checkbox" id="rememberMe">Remember me</label>
+              <button type="button" class="forgot-link" id="forgotBtn">Forget password</button>
+            </div>
+            <button type="submit" class="btn-primary" id="loginBtn">
+              <span class="spinner" id="loginSpinner"></span>
+              <span id="loginBtnText">Sing in</span>
+            </button>
+           </form>
+           <div class="divider">or continue with</div>
+           <div class="social-row">
+            <button class="btn-social" type="button">Google</button>
+            <button class="btn-social" type="button">GitHub</button>
+           </div>
+        </div>
+        <!--SINGUP-->
+        <div class="face back" id="singupFace">
+          <h2 class="title">Create Account</h2>
+          <p class="subtitle">Already writhing here? <button type="button" id="toLogin">Sing in</button></p>
+          <form id="signupFrom" novalidate>
+            <div class="field">
+              <label for="signupName">Full name</label>
+              <input type="text" id="signupName" placeholder="Mew PeW" autocomplete="name">
+              <div class="field-error" id="signupNameErr"></div>
+            </div>
+            <div class="field">
+              <label for="signupEmail">Email</label>
+              <input type="email" id="signupEmail" placeholder="you@example.com" autocomplete="email">
+              <div class="field-error" id="signupEmailErr"></div>
+            </div>
+            <div class="field">
+              <label for="signupPassword">Password</label>
+              <input type="password" id="signupPassword" placeholder="Make a string password" autocomplete="new-password">
+              <button type="button" class="toggle-eye" data-target="signupPassword">Show</button>
+              <div class="strength-row" id="strengthrow">
+                <div><div><div><div></div></div></div></div>
+              </div>
+              <div class="strength-label" id="strengthLable">Password strength</div>
+            </div>
+            <button type="submit" class="btn-primary" id="signupBtn">
+              <span class="spinner" id="signupSpinner"></span>
+              <span id="signupBtnText">Create account</span>
+            </button>
+          </form>
+        </div>
+      </div>
+      <!--OTP STEP-->
+    </div>
+  </div>
 </body>
 </html>
